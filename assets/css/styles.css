@@ -1,0 +1,480 @@
+/*=============== GOOGLE FONTS ===============*/
+@import url("https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;600&family=Raleway:wght@500;600;700&display=swap");
+
+/*=============== VARIABLES CSS ===============*/
+:root {
+  --header-height: 3rem;
+
+  /*========== Colors ==========*/
+  /* Change favorite color to match images */
+  /*Green dark 190 - Green 171 - Grren Blue 200*/
+  --hue-color: 190;
+
+  /* HSL color mode */
+  --first-color: #11044c;
+  --first-color-second: #0582c0;
+  --first-color-alt: hsl(var(--hue-color), 64%, 15%);
+  --title-color: hsl(var(--hue-color), 64%, 18%);
+  --text-color: hsl(var(--hue-color), 24%, 35%);
+  --text-color-light: hsl(var(--hue-color), 8%, 60%);
+  --input-color: hsl(var(--hue-color), 24%, 97%);
+  --body-color: hsl(var(--hue-color), 100%, 99%);
+  --white-color: #fff;
+  --scroll-bar-color: hsl(var(--hue-color), 12%, 90%);
+  --scroll-thumb-color: hsl(var(--hue-color), 12%, 75%);
+
+  /*========== Font and typography ==========*/
+  --body-font: "Open Sans", sans-serif;
+  --title-font: "Raleway", sans-serif;
+  --biggest-font-size: 2.5rem;
+  --h1-font-size: 1.5rem;
+  --h2-font-size: 1.25rem;
+  --h3-font-size: 1rem;
+  --normal-font-size: 0.938rem;
+  --small-font-size: 0.813rem;
+  --smaller-font-size: 0.75rem;
+
+  /*========== Font weight ==========*/
+  --font-medium: 500;
+  --font-semi-bold: 600;
+
+  /*========== Margenes Bottom ==========*/
+  --mb-0-25: 0.25rem;
+  --mb-0-5: 0.5rem;
+  --mb-0-75: 0.75rem;
+  --mb-1: 1rem;
+  --mb-1-25: 1.25rem;
+  --mb-1-5: 1.5rem;
+  --mb-2: 2rem;
+  --mb-2-5: 2.5rem;
+
+  /*========== z index ==========*/
+  --z-tooltip: 10;
+  --z-fixed: 100;
+
+  /*========== Hover overlay ==========*/
+  --img-transition: 0.3s;
+  --img-hidden: hidden;
+  --img-scale: scale(1.1);
+}
+
+@media screen and (min-width: 968px) {
+  :root {
+    --biggest-font-size: 4rem;
+    --h1-font-size: 2.25rem;
+    --h2-font-size: 1.75rem;
+    --h3-font-size: 1.25rem;
+    --normal-font-size: 1rem;
+    --small-font-size: 0.875rem;
+    --smaller-font-size: 0.813rem;
+  }
+}
+
+/*========== Variables Dark theme ==========*/
+body.dark-theme {
+  --first-color-second: hsl(var(--hue-color), 54%, 12%);
+  --title-color: hsl(var(--hue-color), 24%, 95%);
+  --text-color: hsl(var(--hue-color), 8%, 75%);
+  --input-color: hsl(var(--hue-color), 29%, 16%);
+  --body-color: hsl(var(--hue-color), 29%, 12%);
+  --scroll-bar-color: hsl(var(--hue-color), 12%, 48%);
+  --scroll-thumb-color: hsl(var(--hue-color), 12%, 36%);
+}
+
+/*========== Button Dark/Light ==========*/
+
+.change-theme {
+  display: flex;
+  color: var(--white-color);
+  border-radius: 50px;
+  background-color: var(--first-color);
+  padding: 0.9rem;
+  justify-content: center;
+}
+
+.change-theme {
+  font-size: 1rem;
+}
+
+/*=============== BASE ===============*/
+* {
+  box-sizing: border-box;
+  padding: 0;
+  margin: 0;
+}
+* html {
+  scroll-behavior: smooth;
+}
+
+body {
+  margin: var(--header-height) 0 0 0;
+  font-family: var(--body-font);
+  font-size: var(--normal-font-size);
+  background-color: var(--body-color);
+  color: var(--text-color);
+}
+
+h1,
+h2,
+h3 {
+  color: var(--title-color);
+  font-weight: var(--font-semi-bold);
+  font-family: var(--title-font);
+}
+
+ul {
+  list-style: none;
+}
+
+a {
+  text-decoration: none;
+}
+
+img,
+video {
+  max-width: 100%;
+  height: auto;
+}
+
+button,
+input {
+  border: none;
+  font-family: var(--body-font);
+  font-size: var(--normal-font-size);
+}
+
+button {
+  cursor: pointer;
+}
+
+input {
+  outline: none;
+}
+
+.main {
+  overflow-x: hidden;
+}
+
+/*=============== REUSABLE CSS CLASSES ===============*/
+.section {
+  padding: 4.5rem 0 2.5rem;
+}
+
+.section__title {
+  font-size: var(--h2-font-size);
+  color: var(--title-color);
+  text-align: center;
+  text-transform: capitalize;
+  margin-bottom: var(--mb-2);
+}
+
+.container {
+  max-width: 1500px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.grid {
+  display: grid;
+  gap: 1.5rem;
+}
+.section_suptitle {
+  font-size: 35px;
+  margin-bottom: 15px;
+  color: var(--first-color);
+}
+.section_title {
+  color: var(--first-color-second);
+  margin-bottom: 30px;
+  font-size: 15px;
+}
+.section_suptitle,
+.section_title {
+  text-align: center;
+}
+/*=============== HEADER ===============*/
+.header {
+  width: 100%;
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: var(--z-fixed);
+  background-color: transparent;
+}
+/*=============== NAV ===============*/
+.header {
+  background-color: #fff;
+}
+.nav {
+  height: var(--header-height);
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.nav {
+  height: calc(var(--header-height) + 1.5rem);
+  display: flex;
+}
+
+.nav__list {
+  display: flex;
+  column-gap: 4rem;
+}
+
+.nav {
+  height: calc(var(--header-height) + 1.5rem);
+  display: flex;
+}
+
+.nav__link:hover {
+  color: var(--first-color-second);
+}
+
+/*=============== HOME ===============*/
+.home__img {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: calc(100vh - 25%);
+  object-fit: cover;
+  object-position: 83%;
+}
+
+.home__container {
+  position: relative;
+  display: flex;
+  height: calc(85vh - var(--header-height));
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.cardimg {
+  width: 45%;
+}
+.subtitle {
+  font-size: 55px;
+  margin-bottom: 40px;
+  color: var(--first-color-alt);
+}
+.title {
+  font-size: 25px;
+  color: var(--first-color-second);
+}
+/*=============== HOW ===============*/
+
+.how_container {
+  grid-template-columns: repeat(3, 1fr);
+}
+.How_It_Works_a {
+  display: flex;
+  flex-direction: column;
+}
+
+.card {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 360px;
+  background-color: white;
+  border-radius: 5px;
+  margin-bottom: 15px;
+  box-shadow: 0 3px 6px rgba(46, 46, 46, 0.062), 0 3px 6px rgba(0, 0, 0, 0.014);
+}
+.card_img {
+  width: 150px;
+  margin-top: 25px;
+}
+.card_suptitle {
+  font-size: 20px;
+  margin: 15px;
+  color: var(--first-color);
+}
+.card_title {
+  font-size: 15;
+  margin: 25px;
+  text-align: center;
+  color: var(--first-color-second);
+}
+.card:hover {
+  background-color: #d2effa;
+}
+
+/*=============== Features ===============*/
+.Features_container {
+  grid-template-columns: repeat(3, 1fr);
+}
+.Features {
+  display: flex;
+  flex-direction: column;
+  margin-top: 45px;
+}
+
+.card_Features {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 350px;
+  background-color: white;
+  border-radius: 3px;
+  margin-bottom: 15px;
+  padding: 25px;
+}
+.card_img_Features {
+  width: 80px;
+}
+.card_suptitle_Features {
+  margin-top: 15px;
+  color: var(--first-color);
+  font-size: 15px;
+}
+
+.card_Features:hover {
+  background-color: #d2effa;
+}
+
+/*=============== perfect ===============*/
+.perfect {
+  display: flex;
+  flex-direction: column;
+  margin-top: 45px;
+  background-color: var(--first-color);
+}
+.perfect_button_container {
+  grid-template-columns: repeat(5, 1fr);
+}
+.perfect_img_container {
+  grid-template-columns: repeat(4, 1fr);
+  margin-top: 25px;
+  margin-bottom: 25px;
+}
+.perfect_t {
+  color: white;
+  margin-top: 25px;
+}
+.perfect_img {
+  width: 300px;
+}
+
+/*=============== appreciation ===============*/
+.appreciation {
+  display: flex;
+  flex-direction: column;
+  margin-top: 45px;
+}
+
+.appreciation__container {
+  position: relative;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-between;
+}
+.appreciation_subtitle {
+  margin-bottom: 15px;
+}
+.appreciation_title {
+  color: var(--first-color-second);
+}
+.appreciation_img {
+  width: 25%;
+}
+.appreciation {
+  align-items: center;
+}
+.bt {
+  width: 260px;
+  margin-bottom: 25px;
+}
+/*=============== BUTTONS ===============*/
+.button {
+  display: inline-block;
+  background-color: var(--first-color-second);
+  color: var(--white-color);
+  padding: 1rem 2rem;
+  font-weight: var(--font-semi-bold);
+  transition: 0.3s;
+  text-align: center;
+  border-radius: 5px;
+}
+
+.button:hover {
+  background-color: white;
+  color: var(--first-color);
+}
+
+.button--flex {
+  display: flex;
+  align-items: center;
+  column-gap: 0.25rem;
+}
+
+/*========== SCROLL UP ==========*/
+.scrollup {
+  position: fixed;
+  right: 1rem;
+  bottom: 18%;
+  background-color: var(--first-color);
+  padding: 0.5rem;
+  display: flex;
+  opacity: 0.9;
+  z-index: var(--z-tooltip);
+  transition: 0.4s;
+}
+
+.scrollup:hover {
+  background-color: var(--first-color-second);
+  opacity: 1;
+}
+
+.scrollup__icon {
+  color: var(--white-color);
+  font-size: 1.2rem;
+}
+
+/* Show scroll */
+.show-scroll {
+  bottom: 15rem;
+}
+
+/*=============== SCROLL BAR ===============*/
+::-webkit-scrollbar {
+  width: 0.6rem;
+  background-color: var(--scroll-bar-color);
+}
+
+::-webkit-scrollbar-thumb {
+  background-color: var(--first-color);
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background-color: var(--text-color-light);
+}
+/*=============== MEDIA QUERIES ===============*/
+@media screen and (max-width: 340px) {
+}
+/* For medium devices */
+@media screen and (min-width: 568px) {
+}
+@media screen and (min-width: 768px) {
+}
+/* For large devices */
+@media screen and (min-width: 1024px) {
+}
+
+@media screen and (min-width: 1200px) {
+  /* .container {
+    
+  } */
+}
+
+/* For tall screens on mobiles y desktop*/
+@media screen and (min-height: 721px) {
+  body {
+    margin: 0;
+  }
+  /* .home__container, .home__img {
+  } */
+}

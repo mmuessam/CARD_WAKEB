@@ -1,0 +1,7 @@
+{
+  "editor.defaultFormatter": "esbenp.prettier-vscode",
+  "html.format.endWithNewline": true,
+  "files.autoSave": "afterDelay",
+  "editor.formatOnSave": true,
+  "prettier.arrowParens": "avoid"
+}
